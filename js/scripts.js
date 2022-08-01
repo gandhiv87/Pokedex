@@ -7,18 +7,18 @@ let pokemonList = [
   {name: 'Dragonite', height: 7.03, types: ['dragon', 'flying']},
 ];
 
-for (let i = 0; i < pokemonList.length; i++)
+pokemonList.forEach(function(pokemon)
 {
-  if (pokemonList[i].height >= 4)
+  if (pokemon.height >= 4)
   {
-    document.write(pokemonList[i].name + '\'s height is ' + pokemonList[i].height + ' feet!' + ' - WOW, that\'s big!!!' + '<br>');
+    document.write(pokemon.name + '\'s height is ' + pokemon.height + ' feet!' + ' - WOW, that\'s big!!!' + '<br>');
   }
-  else if (pokemonList[i].height <= 1.2)
+  else if (pokemon.height <= 1.2)
   {
-    document.write(pokemonList[i].name + '\'s height is ' + pokemonList[i].height + ' feet!' + ' - That\'s tiny!!!' + '<br>');
+    document.write(pokemon.name + '\'s height is ' + pokemon.height + ' feet!' + ' - That\'s tiny!!!' + '<br>');
   }
   else
   {
-    document.write(pokemonList[i].name + '\'s height is ' + pokemonList[i].height + ' feet!' + '<br>');
+    document.write(pokemon.name + '\'s height is ' + pokemon.height + ' feet!' + '<br>');
   }
-}
+});
