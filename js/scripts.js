@@ -1,4 +1,4 @@
-var pokemonRepository = (function() {
+let pokemonRepository = (function() {
   let repository = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
@@ -56,9 +56,63 @@ var pokemonRepository = (function() {
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function() {
-      console.log(pokemon.name);
+      showDetailsModal(pokemon.name);
     });
   };
+
+  function showDetailsModal(pokemon) {
+    let modalContainer = document.querySelector('.pokemon-details-modal');
+
+    // Clear all existing modal content
+    modalContainer.innerText = '';
+
+    // Add the new modal content
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    let closeButton = document.createElement('button');
+    closeButton.classList.add('modal-close');
+    closeButton.innerText = 'Close';
+    closeButton.addEventListener('click', hideModal);
+
+    let name = document.createElement('h1');
+    name.innerText = pokemon.name;
+
+    let height = document.createElement('p');
+    height.innerText = pokemon.height;
+
+    let image = document.createElement('img');
+    image.src = pokemon.imageUrl;
+
+    modal.appendChild(closeButton);
+    modal.appendChild(title);
+    modal.appendChild(height);
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add('is-visible');
+  }
+
+  function hideModal() {
+    let modalContainer = document.querySelector('.pokemon-details-modal');
+    modalContainer.classList.remove('is-visible');
+  }
+
+  window.addEventListener('keydown', (e) => {
+    let modalContainer = document.querySelector('.pokemon-details-modal');
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();
+    }
+  });
+
+  let modalContainer = document.querySelector('.pokemon-details-modal');
+  modalContainer.addEventListener('click', (e) => {
+    // Since this is also triggered when clicking INSIDE the modal
+    // We only want to close if the user clicks directly on the overlay
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  })
 
   return {
     add: add,
