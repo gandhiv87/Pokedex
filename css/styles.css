@@ -16,11 +16,11 @@
   border: 2px solid #4caf50;
 }
 
-.pokemon-deatils-modal {
+.pokemon-details-modal {
   display: none;
 }
 
-.pokemon-deatils-modal.is-visible {
+.pokemon-details-modal.is-visible {
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
