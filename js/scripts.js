@@ -1,7 +1,6 @@
 let pokemonRepository = (function() {
   let repository = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  let modalContainer = document.querySelector('.pokemon-details-modal');
 
   function add(pokemon) {
     repository.push(pokemon);
@@ -25,7 +24,6 @@ let pokemonRepository = (function() {
     button.classList.add('button-class');
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#pokemon-modal');
-    // button.classList.add('btn');
 
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
@@ -87,10 +85,10 @@ let pokemonRepository = (function() {
     image.attr("src", pokemon.imageUrl);
 
     // Create element for height in modal content
-    let height = $("<p>" + "Height: " + pokemon.height + "</p>");
+    let height = $("<p>" + "Height: " + pokemon.height + " m" + "</p>");
 
     // Create element for weight in modal content
-    let weight = $("<p>" + "Weight: " + pokemon.weight + "</p>");
+    let weight = $("<p>" + "Weight: " + pokemon.weight + " lbs" + "</p>");
 
     // Create element for types in modal content
     let types = $("<p>" + "Types: " + pokemon.types + "</p>");

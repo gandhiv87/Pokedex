@@ -1,24 +1,38 @@
-.button-class{
-  background-color: #4caf50; /*Green */
+*{
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ADD6C1;
+}
+
+.pokemon-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.pokemon-list>li {
+  flex: 0 0 30%;
+  text-align: center;
+  margin: 5px 1%;
+  display: 100%;
+}
+
+.button-class {
   border: none;
-  color: white;
+  width: 50%;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: white;
-  color: black;
-  border: 2px solid #4caf50;
-}
-
-.navbar {
-  background-color: #870290;;
-  color: white;
+  background-color: #D8E2E5;
 }
 
 /* media queries */
